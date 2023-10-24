@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
         pagingAdapter = NewsPagingAdapter()
 
-        //to assign data into pagingData which can be observed later to setup the pagingAdapter
+        //to assign data into pagingData which can be observed later to setup the paging adapter
         viewModel.fetchNews("health")
 
         setObservers()
@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setObservers() {
         viewModel.pagingData.observe(this, Observer {
+            Toast.makeText(this@MainActivity,it.toString(),Toast.LENGTH_LONG).show()
             binding.newsRv.layoutManager = LinearLayoutManager(this)
             Log.d("datafetched-uicontroller",it.toString())
             pagingAdapter.submitData(lifecycle,it)
