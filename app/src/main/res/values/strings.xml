@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">news_mobile_first</string>
+    <string name="title_main">Hi, news freak</string>
+    <string name="title_content">Discover all your news here</string>
+</resources>
